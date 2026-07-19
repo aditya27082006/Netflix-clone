@@ -1,0 +1,9 @@
+*{
+    margin:0;
+    padding:0;
+}
+main{
+    background-image: url("assets/images/bg.jpg");
+    width:2000px
+    height: 1125px;
+}
