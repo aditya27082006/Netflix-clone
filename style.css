@@ -388,5 +388,5 @@ nav button:active {
     );
     filter: blur(11px);
     z-index: 1;
-    pointer-events: none;
+    pointer-events: none; 
 }
