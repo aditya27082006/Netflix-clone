@@ -393,27 +393,33 @@ nav button:active {
 
 /* Now Adding the Trending Now Section of the Netflix Website */
 
+/* ---------- TRENDING NOW ---------- */
+
 .trending {
     background-color: #000;
-    color: white;
-    padding: 20px 8%;
-    /* display: flex;
-    gap: 40px;
-    align-items: center; */
+    color: #fff;
+    /* Controls the position of the ENTIRE section */
+    padding: 8px 8% 20px;
+    position: relative;
+    top: -28px;
 }
 
 .trending h2 {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 24px;
     font-weight: 700;
-    margin: 0 0 18px 0;
+    line-height: 1.2;
+    /* Space between heading and cards */
+    margin: 0 0 25px;
+    margin-left: 35px;
 }
 
 .trending-list {
     display: flex;
-    gap: 38px;
     align-items: center;
     justify-content: center;
+    /* Distance between each card */
+    gap: 38px;
 }
 
 .trending-card {
@@ -422,8 +428,8 @@ nav button:active {
 }
 
 .trending-card img {
-    width: 170px;
-    height: 238px;
+    width: 180px;
+    height: 252px;
     object-fit: cover;
     border-radius: 8px;
     display: block;
@@ -431,12 +437,14 @@ nav button:active {
 
 .rank {
     position: absolute;
+    /* Position number over left edge of poster */
     left: -20px;
     bottom: 2px;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 110px;
     font-weight: 900;
     line-height: 1;
-    color: black;
+    color: #000;
     -webkit-text-stroke: 2px #b3b3b3;
     z-index: 2;
 }
@@ -445,18 +453,21 @@ nav button:active {
     width: 24px;
     height: 115px;
     background-color: #1a1a1a;
-    color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    margin-left: 12px;
+    margin-left: -12px;
+    padding: 0;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 .next-arrow {
-    display: inline-block;
     width: 11px;
     height: 11px;
     border-top: 2.2px solid #d6d6d6;
     border-right: 2.2px solid #d6d6d6;
-    transform: rotate(45deg);
+    transform: rotate(45deg) translateX(-1px);
 }
