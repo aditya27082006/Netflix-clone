@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #000;
+}
+
 .main {
     background-image: url("assets/images/bg.jpg");
     /* For Slightly downward movement */
@@ -235,9 +239,12 @@ nav div {
 .language-icon {
     position: absolute;
     left: 10px;
-    color: white;
-    font-size: 14px;
-    font-weight: 600;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
     z-index: 2;
     pointer-events: none;
 }
@@ -500,76 +507,83 @@ mask-image: linear-gradient(
     transform: rotate(45deg) translateX(-1px);
 }
 
-/* =========================================
-   MORE REASONS TO JOIN
-   ========================================= */
+/* ==========================================================
+        MORE REASONS TO JOIN
+   ========================================================== */
 
+
+/* Whole More Reasons section */
 .reasons-section {
-    width: 75vw;
-    max-width: 1200px;
-    margin: 55px auto 0;
+    width: 80vw;
+    max-width: 1250px;
+    margin: 28px auto 0;
 
     font-family: "DM Sans", sans-serif;
     color: white;
-
     background: transparent;
 }
 
 
-/* "More reasons to join" */
-
+/* "More reasons to join" heading */
 .reasons-section h2 {
     font-size: 24px;
     font-weight: 700;
     line-height: 1.2;
 
-    margin: 0 0 18px 0;
+    /* Gap between heading and cards */
+    margin: 0 0 16px 0;
 }
 
 
-/* Container containing all 4 cards */
+/* ==========================================================
+        CONTAINER HOLDING ALL FOUR CARDS
+   ========================================================== */
 
 .reasons-container {
     display: grid;
 
-    grid-template-columns: repeat(4, 1fr);
+    /* Four perfectly equal cards */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
 
-    gap: 14px;
+    /* Small Netflix-like spacing between cards */
+    gap: 12px;
 
     width: 100%;
 }
 
 
-/* Each individual card */
+/* ==========================================================
+        EACH INDIVIDUAL CARD
+   ========================================================== */
 
 .reason-card {
     position: relative;
 
     min-width: 0;
-    height: 285px;
+    height: 298px;
 
     box-sizing: border-box;
 
     padding: 24px 18px;
 
     border-radius: 16px;
-
     overflow: hidden;
 
-    background:
-        linear-gradient(
-            145deg,
-            #192247 0%,
-            #1d1938 58%,
-            #210e17 100%
-        );
+    background: linear-gradient(
+        145deg,
+        #192145 0%,
+        #1b1834 55%,
+        #210e17 100%
+    );
 }
 
 
-/* Heading inside card */
+/* ==========================================================
+        CARD HEADING
+   ========================================================== */
 
 .reason-card h3 {
-    margin: 0 0 16px 0;
+    margin: 0 0 12px 0;
 
     font-size: 24px;
     font-weight: 700;
@@ -579,7 +593,9 @@ mask-image: linear-gradient(
 }
 
 
-/* Description */
+/* ==========================================================
+        CARD DESCRIPTION
+   ========================================================== */
 
 .reason-card p {
     margin: 0;
@@ -592,13 +608,15 @@ mask-image: linear-gradient(
 }
 
 
-/* Icon position */
+/* ==========================================================
+        ICON CONTAINER
+   ========================================================== */
 
 .reason-icon {
     position: absolute;
 
-    right: 16px;
-    bottom: 16px;
+    right: 14px;
+    bottom: 14px;
 
     width: 64px;
     height: 64px;
@@ -609,42 +627,682 @@ mask-image: linear-gradient(
 }
 
 
-/* Icon itself */
-
-.reason-icon img {
-    display: block;
-
+/* The SVG itself */
+.reason-icon svg {
     width: 100%;
     height: 100%;
-
-    object-fit: contain;
+    display: block;
 }
 
-/* Tablets */
+
+/* ==========================================================
+        TABLETS
+   ========================================================== */
 
 @media (max-width: 1000px) {
-
-    .reasons-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-}
-
-
-/* Phones */
-
-@media (max-width: 600px) {
 
     .reasons-section {
         width: 90vw;
     }
 
     .reasons-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+}
+
+
+/* ==========================================================
+        PHONES
+   ========================================================== */
+
+@media (max-width: 600px) {
+
+    .reasons-section {
+        width: 90vw;
+        margin-top: 24px;
+    }
+
+    .reasons-container {
         grid-template-columns: 1fr;
+        gap: 12px;
     }
 
     .reason-card {
         min-height: 220px;
+        height: auto;
+    }
+}
+
+/* =========================================================
+                FREQUENTLY ASKED QUESTIONS
+========================================================= */
+
+.faq-section {
+    width: 80vw;
+    max-width: 1250px;
+
+    margin: 62px auto 0;
+
+    font-family: "DM Sans", sans-serif;
+    color: white;
+}
+
+
+/* FAQ heading */
+
+.faq-section h2 {
+    margin: 0 0 18px 0;
+
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+
+    color: white;
+}
+
+
+/* Container holding all FAQ questions */
+
+.faq-container {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+/* Each complete question + answer */
+
+.faq-item {
+    width: 100%;
+}
+
+
+/* Question bar */
+
+.faq-question {
+    width: 100%;
+    min-height: 84px;
+
+    padding: 20px 24px;
+
+    border: none;
+    outline: none;
+
+    background: #2d2d2d;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    text-align: left;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+
+/* Netflix grey hover */
+
+.faq-question:hover {
+    background: #414141;
+}
+
+
+/* Plus icon */
+
+.faq-plus {
+    flex-shrink: 0;
+    margin-left: 24px;
+
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 48px;
+    font-weight: 100;
+    line-height: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Hidden answer */
+
+.faq-answer {
+    max-height: 0;
+
+    overflow: hidden;
+
+    background: #2d2d2d;
+
+    transition: max-height 0.35s ease;
+}
+
+
+/* Actual answer content */
+
+.faq-answer-content {
+    padding: 24px;
+
+    border-top: 1px solid #000;
+
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.3;
+
+    color: white;
+}
+
+
+.faq-answer-content p {
+    margin: 0;
+}
+
+
+/* Space between paragraphs */
+
+.faq-answer-content p + p {
+    margin-top: 24px;
+}
+
+
+/* When FAQ is opened */
+
+.faq-item.active .faq-answer {
+    max-height: 600px;
+}
+
+
+/* Turn + into X */
+
+.faq-item.active .faq-plus {
+    transform: rotate(45deg);
+}
+
+
+/* ==============================
+              TABLETS
+============================== */
+
+@media (max-width: 1000px) {
+
+    .faq-question {
+        min-height: 76px;
+
+        font-size: 20px;
+
+        padding: 18px 22px;
     }
 
+    .faq-plus {
+        font-size: 42px;
+    }
+
+    .faq-answer-content {
+        font-size: 20px;
+    }
+}
+
+
+/* ==============================
+               PHONES
+============================== */
+
+@media (max-width: 600px) {
+
+    .faq-section {
+        width: 90vw;
+        margin-top: 48px;
+    }
+
+    .faq-section h2 {
+        font-size: 20px;
+        margin-bottom: 14px;
+    }
+
+    .faq-container {
+        gap: 8px;
+    }
+
+    .faq-question {
+        min-height: 72px;
+
+        padding: 18px 20px;
+
+        font-size: 18px;
+    }
+
+    .faq-plus {
+        margin-left: 16px;
+
+        font-size: 38px;
+    }
+
+    .faq-answer-content {
+        padding: 20px;
+
+        font-size: 18px;
+        line-height: 1.35;
+    }
+
+    .faq-answer-content p + p {
+        margin-top: 20px;
+    }
+}
+
+/* ==========================================================
+   BOTTOM CTA + FOOTER
+========================================================== */
+
+.bottom-section {
+    width: 80vw;
+    max-width: 1300px;
+    margin: 65px auto 0;
+    font-family: "DM Sans", sans-serif;
+    color: white;
+}
+
+
+/* ==========================================================
+   READY TO WATCH SECTION
+========================================================== */
+
+.bottom-cta {
+    width: 100%;
+}
+
+
+/* Ready to watch heading */
+
+.bottom-cta h3 {
+    margin: 0 0 18px;
+
+    text-align: center;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+
+    color: white;
+}
+
+
+/* ==========================================================
+   EMAIL + BUTTON
+========================================================== */
+
+.bottom-email-form {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+
+    gap: 8px;
+}
+
+
+/* Email field */
+
+.bottom-email-box {
+    width: 480px;
+    height: 56px;
+
+    box-sizing: border-box;
+
+    position: relative;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 4px;
+
+    background: rgba(22, 22, 22, 0.75);
+
+    overflow: hidden;
+}
+
+/* Actual email input */
+
+.bottom-email-box input {
+    width: 100%;
+    height: 100%;
+
+    box-sizing: border-box;
+
+    border: none;
+    outline: none;
+    background: transparent;
+
+    padding: 20px 18px 6px;
+
+    color: white;
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* Floating Email address label */
+
+.bottom-email-box label {
+    position: absolute;
+
+    left: 18px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: rgba(255, 255, 255, 0.7);
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 500;
+
+    pointer-events: none;
+
+    transition:
+        top 0.15s ease,
+        transform 0.15s ease,
+        font-size 0.15s ease;
+}
+
+.bottom-email-box input:focus + label,
+.bottom-email-box input:not(:placeholder-shown) + label {
+    top: 8px;
+    transform: translateY(0);
+
+    font-size: 12px;
+    font-weight: 400;
+}
+
+/* Red button */
+
+.bottom-start-btn {
+    height: 56px;
+
+    box-sizing: border-box;
+
+    border: 0;
+    border-radius: 4px;
+
+    padding: 0 24px;
+
+    background: #e50914;
+
+    color: white;
+
+    font-family: inherit;
+    font-size: 24px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    cursor: pointer;
+}
+
+
+/* Arrow */
+
+.bottom-arrow {
+    width: 12px;
+    height: 12px;
+    border-right: 2px solid white;
+    border-top: 2px solid white;
+    transform: rotate(45deg);
+    margin-left: 10px;
+}
+
+
+/* ==========================================================
+   OFFER DISCLAIMER
+========================================================== */
+
+.bottom-offer-text {
+    width: 100%;
+
+    margin: 18px 0 0;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.35;
+}
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.netflix-footer {
+    width: 100%;
+
+    margin-top: 42px;
+
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* Questions / phone */
+
+.footer-question {
+    margin: 0 0 32px;
+
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.footer-question a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: underline;
+}
+
+
+/* ==========================================================
+   FOOTER LINKS
+========================================================== */
+
+.footer-links {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    column-gap: 70px;
+}
+
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+}
+
+
+.footer-column a {
+    width: fit-content;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    font-size: 14px;
+    font-weight: 500;
+
+    text-decoration: underline;
+}
+
+
+/* ==========================================================
+   LANGUAGE BUTTON
+========================================================== */
+
+.footer-language {
+    width: fit-content;
+    height: 34px;
+    /* min-width:118px; */
+    margin-top: 34px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 4px;
+
+    background: rgba(22, 22, 22, 0.7);
+
+    padding: 0 8px;
+}
+
+
+.footer-language-icon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    flex-shrink: 0;
+}
+
+.footer-language select {
+    border: 0;
+    outline: 0;
+    min-width: 85px;
+    background: transparent;
+    color: white;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+
+/* ==========================================================
+   NETFLIX INDIA
+========================================================== */
+
+.footer-country {
+    margin: 28px 0 0;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+/* ==========================================================
+   RECAPTCHA TEXT
+========================================================== */
+
+.footer-recaptcha {
+    margin: 28px 0 90px;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (max-width: 1000px) {
+
+    .bottom-email-form {
+        flex-wrap: wrap;
+    }
+
+    .bottom-email-box {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 30px;
+    }
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 600px) {
+
+    .bottom-section {
+        width: 90vw;
+        margin-top: 45px;
+    }
+
+
+    .bottom-cta h3 {
+        text-align: left;
+    }
+
+
+    .bottom-email-form {
+        display: block;
+    }
+
+
+    .bottom-email-box {
+        width: 100%;
+        height: 56px;
+        min-width: 0;
+    }
+
+
+    .bottom-start-btn {
+        height: 52px;
+
+        margin-top: 12px;
+
+        padding: 0 18px;
+
+        font-size: 18px;
+    }
+
+
+    .bottom-arrow {
+        font-size: 32px;
+    }
+
+
+    .bottom-offer-text {
+        font-size: 14px;
+    }
+
+
+    .footer-links {
+        grid-template-columns: 1fr;
+
+        row-gap: 16px;
+    }
+
+
+    .footer-column {
+        gap: 16px;
+    }
 }
